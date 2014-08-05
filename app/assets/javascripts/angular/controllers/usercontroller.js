@@ -1,5 +1,5 @@
 var app = angular.module('MyTutorialApp',[]);
-app.controller("UsersController", function($scope,$http){
+app.controller("UsersController",['$scope','$http', function($scope,$http){
 	 $scope.hello = "hello world"
    $scope.users = []
    $scope.template = {}
@@ -84,7 +84,4 @@ app.controller("UsersController", function($scope,$http){
     });
    }
 
-}
-
-  UsersController.$inject = ['$scope', '$http'];
-);
+}]);
