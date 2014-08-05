@@ -1,0 +1,18 @@
+<div class="center hero-unit">
+<div ng-controller="UsersController" >
+    <!-- {{hello}} -->
+     <!-- <button ng-click='show()'>Show All Users</button> -->
+     Search :<input type="text" ng-model="searchtext">
+     <li ng-repeat = 'user in users| filter: searchtext'>{{user.name}}    <a href="#" ng-click="deleteUser(user.id)">Delete</a> 
+     <a href="#" ng-click="editUser(user.id)">Edit</a>
+     </li>
+     <br>
+     <button ng-click="addNew()">Add New </button>
+     
+     
+     <div ng-include='template.url'></div>
+
+
+</div>
+</div>
+
