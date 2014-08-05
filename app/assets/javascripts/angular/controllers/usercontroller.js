@@ -1,3 +1,4 @@
+var app = angular.module('MyTutorialApp',[]);
 app.controller("UsersController", function($scope,$http){
 	 $scope.hello = "hello world"
    $scope.users = []
