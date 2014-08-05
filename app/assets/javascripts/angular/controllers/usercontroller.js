@@ -84,4 +84,7 @@ app.controller("UsersController", function($scope,$http){
     });
    }
 
-});
+}
+
+  UsersController.$inject = ['$scope', '$http'];
+);
