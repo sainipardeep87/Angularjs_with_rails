@@ -1,2 +1,2 @@
 Rails app with angular js .
-Live app hosted on www.angular-app111.heroku.com
+Live app hosted on www.angular-app111.herokuapp.com
