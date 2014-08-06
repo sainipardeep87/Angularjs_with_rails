@@ -45,7 +45,8 @@ class Api::V1::UsersController < ApplicationController
       # puts @users
           render json: @users 
       else
-          render json: @user.errors, status: :unprocessable_entity 
+          render json: @user.errors.full_messages, status: :unprocessable_entity 
+          puts @user.errors.full_messages
       end
   end
 

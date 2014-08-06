@@ -1,4 +1,3 @@
-// var app = angular.module('MyTutorialApp',[]);
 app.controller("UsersController",['$scope','$http', function($scope,$http){
 	 $scope.hello = "hello world"
    $scope.users = []
@@ -29,12 +28,14 @@ app.controller("UsersController",['$scope','$http', function($scope,$http){
    }
    // add new user template----------
    $scope.addNew = function(){
-    
+
+     $scope.user = {}
      $scope.template = { name: "form", url: "userform.html"} 
    }
    
 
   // create new user ---------------------
+  $scope.errors = []
    $scope.submit = function(){
       formData = JSON.stringify($scope.user)
       $http({method:'POST', url: '/api/v1/users', data: formData}).
@@ -45,14 +46,16 @@ app.controller("UsersController",['$scope','$http', function($scope,$http){
                   
      }).
      error(function(data, status, headers,config) {
-         alert("fail")
+         // alert(data)
+         $scope.errors = data
          
     });
-    $scope.user = { }
+    // $scope.user = { }
    }
 
 	$scope.hidefields = function(){
     $scope.template = { } 
+    $scope.errors = { }
    }
 
    // edit user ---------------------

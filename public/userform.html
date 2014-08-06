@@ -1,13 +1,14 @@
-
+    <li class = "alert alert-danger" ng-repeat='error in errors'>{{error}}</li>
     <form >
-
-      First name:    <br/><input type="text" ng-model="user.name">    <br/><br/>
+	  
+      First name:    <br/><input type="text" ng-model="user.name">  <br/><br/>
       Email Address: <br/><input type="text" ng-model="user.email"> <br/><br/>
 
      
-      <button type = "button" ng-click="submit()">Submit</button> 
+      <button type = "button" ng-click="submit()" class="b-button">Create User</button> 
+      <button ng-click="hidefields()" class="b-button"> Cancel </button>
+
       
     </form>
-    <button ng-click="hidefields()"> Hide </button>
 
   </div>
