@@ -1,6 +1,6 @@
 AngularApi::Application.routes.draw do
   resources :users
-  
+  root :to => 'users#index'
     namespace :api  do
       namespace :v1 do
         resources :users
