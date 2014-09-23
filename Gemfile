@@ -8,8 +8,9 @@ gem 'rails', '3.2.19'
 gem 'execjs'
 gem 'therubyracer'
 gem 'mysql'
-
+gem 'twitter'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'debugger'
 
 
 # Gems used only for assets and not required

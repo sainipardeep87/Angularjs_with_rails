@@ -2,18 +2,43 @@ app.controller("UsersController",['$scope','$http', function($scope,$http){
 	 $scope.hello = "hello world"
    $scope.users = []
    $scope.template = {}
+   $scope.user_check = "normal"
+
  
    // show all users----------------
    // $scope.show = function(){
-      
-   $http({method: 'GET', url: '/api/v1/users'}).
-     success(function(data, status, headers, config) {
-         $scope.users = data
-     });
+    $http({method: 'GET', url: '/api/v1/users'}).
+          success(function(data, status, headers, config) {
+            $scope.users = data
+            $scope.template = { name: "form1", url: "user.html"} 
+          });
+
+   $scope.Selected_user = function(value){
+      // alert(value);
+      $scope.template = { name: "form1", url: "loader.html"} 
+      if (value == "normal"){
+        $http({method: 'GET', url: '/api/v1/users'}).
+          success(function(data, status, headers, config) {
+            $scope.template = { name: "form1", url: "user.html"} 
+            $scope.users = data
+          });
+      }
+      if (value == "twitter"){
+        $http({method: 'GET', url: '/api/v1/users/twitter_user'}).
+          success(function(data, status, headers, config) {
+            $scope.template = { name: "form1", url: "twitter_user.html"} 
+            $scope.users = data
+          });
+      }
+   }
+
+   
     //  error(function(data, status, headers, config) {
     //      alert("fail")
     // });
    // }
+
+
    // delete user ------------------
    $scope.deleteUser = function(id){
     $http({method: 'DELETE', url: '/api/v1/users/'+ id}).
@@ -26,7 +51,10 @@ app.controller("UsersController",['$scope','$http', function($scope,$http){
          alert("fail")
     });
    }
+
+   
    // add new user template----------
+
    $scope.addNew = function(){
 
      $scope.user = {}

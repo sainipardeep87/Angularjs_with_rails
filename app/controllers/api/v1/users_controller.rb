@@ -5,6 +5,11 @@ class Api::V1::UsersController < ApplicationController
     render json: @users     
   end
 
+  def twitter_user
+    @twitter = $client.friends
+    render json: @twitter
+  end
+
   # GET /users/1
   # GET /users/1.json
   # def show

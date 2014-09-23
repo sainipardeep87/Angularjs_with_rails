@@ -1,0 +1,6 @@
+ 	 
+     <li ng-repeat = 'user in users| filter: searchtext'><!-- <img src="{{user.profile_image_url}}"> -->{{user.name}}    <a href="#" ng-click="deleteUser(user.id)">Delete</a> 
+     <a href="#" ng-click="editUser(user.id)">Edit</a>
+     </li>
+     <br>
+     <button ng-click="addNew()">Add New </button>
